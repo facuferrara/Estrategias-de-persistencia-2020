@@ -29,14 +29,17 @@ sequelize.sync()
         itemId: '0',
         nombre: 'freezer',
         cantidad: '125'
-    })).then(jane => {
+    }))
+    .then(jane => {
         console.log(jane.toJSON());
-    }).then(() =>Items.update({
+    })
+    .then(() =>Items.update({
         cantidad: '100'}, {
             where: {
                 itemId: '0'
             }
-    })).then(() =>{
+    }))
+    .then(() =>{
         console.log("Insertado y Actualizado")
     })
 
