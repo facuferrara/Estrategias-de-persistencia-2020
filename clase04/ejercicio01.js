@@ -1,9 +1,10 @@
 
  const Sequelize = require('sequelize');
 
- const sequelize = new Sequelize('prueba', 'root', 'root', {
+ const sequelize = new Sequelize('empresa', 'root', '', {
   host: 'localhost',
-  dialect: 'mariadb' /* one of 'mysql' | 'mariadb' | 'postgres' | 'mssql' */
+  dialect: 'mariadb', /* one of 'mysql' | 'mariadb' | 'postgres' | 'mssql' */
+  port:3306,
 });
 
 sequelize
@@ -26,7 +27,7 @@ Items.init({
 sequelize.sync()
     .then(() => Items.create({
         itemId: '0',
-        nombre: 'heladera',
+        nombre: 'freezer',
         cantidad: '125'
     })).then(jane => {
         console.log(jane.toJSON());
@@ -36,6 +37,6 @@ sequelize.sync()
                 itemId: '0'
             }
     })).then(() =>{
-        console.log("Listo")
+        console.log("Insertado y Actualizado")
     })
 
